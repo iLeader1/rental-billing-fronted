@@ -1,69 +1,97 @@
-# rental-billing-fronted
+# 租赁账单管理系统 (rental-billing-fronted)
 
-This template should help get you started developing with Vue 3 in Vite.
+本项目是一个基于 **Vue 3** 和 **Vite** 构建的高效租赁账单管理系统前端。旨在为房东或物业管理者提供房源管理、租客信息维护及自动化账单生成的完整解决方案。
 
-## Recommended IDE Setup
+## 🚀 技术栈
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+*   **框架**: [Vue 3 (Composition API)](https://vuejs.org/)
+*   **构建工具**: [Vite 7](https://vitejs.dev/)
+*   **状态管理**: [Pinia](https://pinia.vuejs.org/)
+*   **路由**: [Vue Router 5](https://router.vuejs.org/)
+*   **UI 组件库**: [Element Plus](https://element-plus.org/)
+*   **网络请求**: [Axios](https://axios-http.com/)
+*   **代码规范**: ESLint, Prettier, Oxlint
+*   **单元测试**: Vitest
+*   **端到端测试**: Playwright
 
-## Recommended Browser Setup
+## ✨ 核心功能
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+*   **🏠 房源管理**: 支持房源的新增、修改、删除及状态查看。
+*   **👥 租客管理**: 记录租客基本信息、租约状态及历史记录。
+*   **📅 账单管理**: 自动生成月度账单，支持租金、水费、电费等费用的明细录入与结算。
+*   **📊 数据报表**: (待开发) 租金收入统计与缴费状态可视化。
 
-## Customize configuration
+## 📂 项目目录结构
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+```text
+src/
+├── api/             # API 接口定义 (按模块划分：billing, house, tenant)
+├── router/          # 路由配置
+├── stores/          # Pinia 状态管理
+├── utils/           # 工具类 (包含 axios 拦截器封装)
+├── views/           # 业务页面
+│   ├── BillingManage.vue  # 账单管理
+│   ├── HouseManage.vue    # 房源管理
+│   └── TenantManage.vue   # 租客管理
+├── App.vue          # 根组件
+└── main.js          # 项目入口文件
+```
 
-## Project Setup
+## 🛠️ 环境准备
 
-```sh
+*   **Node.js**: `^20.19.0` 或 `>=22.12.0` (推荐使用最新的 LTS 版本)
+
+## 🔧 项目运行
+
+### 安装依赖
+```bash
 npm install
 ```
 
-### Compile and Hot-Reload for Development
-
-```sh
+### 启动开发服务器
+```bash
 npm run dev
 ```
 
-### Compile and Minify for Production
-
-```sh
+### 项目打包
+```bash
 npm run build
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+### 预览生产环境构建
+```bash
+npm run preview
+```
 
-```sh
+## 🧪 测试与校验
+
+### 单元测试
+```bash
 npm run test:unit
 ```
 
-### Run End-to-End Tests with [Playwright](https://playwright.dev)
-
-```sh
-# Install browsers for the first run
+### 端到端 (E2E) 测试
+```bash
+# 首次运行前需安装浏览器内核
 npx playwright install
 
-# When testing on CI, must build the project first
-npm run build
-
-# Runs the end-to-end tests
 npm run test:e2e
-# Runs the tests only on Chromium
-npm run test:e2e -- --project=chromium
-# Runs the tests of a specific file
-npm run test:e2e -- tests/example.spec.ts
-# Runs the tests in debug mode
-npm run test:e2e -- --debug
 ```
 
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
+### 代码检查与修复
+```bash
+# 同时运行 ESLint 和 Oxlint
 npm run lint
+
+# 自动格式化代码
+npm run format
 ```
+
+## 📝 开发指南
+
+1.  **接口请求**: 所有接口请求应定义在 `src/api/` 目录下，并使用 `src/utils/request.js` 中封装的 axios 实例。
+2.  **样式规范**: 推荐使用 Element Plus 提供的 CSS 变量进行主题定制。
+3.  **命名规范**: 组件文件使用大驼峰命名 (PascalCase)，路由路径使用小写中划线 (kebab-case)。
+
+---
+**提示**: 本项目配套的后端接口文档及配置请参考相关后端项目说明。
